@@ -19,7 +19,6 @@ class Solution {
     }
 
     private void dfs(char[][] grid, int i, int j) {
-        // if(i<0|| i>= grid.length || j<0 || j>= grid[0].length || grid[i][j] != '1') return;
 
         grid[i][j] = '0';
         if(i+1<row && grid[i+1][j] == '1')
@@ -28,7 +27,6 @@ class Solution {
             dfs(grid, i-1, j);
         if(j+1<col && grid[i][j+1] == '1')
             dfs(grid, i, j+1);
-            // dfs(grid, i, j+1);
         if(j>0 && grid[i][j-1] == '1')
             dfs(grid, i, j-1);
     }
