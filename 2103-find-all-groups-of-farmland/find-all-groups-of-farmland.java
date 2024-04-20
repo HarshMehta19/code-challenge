@@ -1,51 +1,35 @@
 class Solution {
+    int row = 0, col = 0;
     public int[][] findFarmland(int[][] land) {
-        int rows = land.length;
-        int cols = land[0].length;
-        Set<String> visited = new HashSet<>();
-        List<int[]> result = new ArrayList<>();
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (land[i][j] == 1 && !visited.contains(i + "," + j)) {
-                    int[] bounds = dfs(land, visited, i, j);
-                    result.add(bounds);
+        row = land.length;    
+        col = land[0].length;
+        List<int[]> res = new ArrayList<>();
+        for(int i=0;i<row;i++) {
+            for(int j=0;j<col;j++) {
+                if(land[i][j] == 1) {
+                    int[] coord = dfs(i, j , land);
+                    res.add(coord);
                 }
             }
         }
 
-        return result.toArray(new int[result.size()][]);
+        return res.toArray(new int[res.size()][]);
     }
 
-    private int[] dfs(int[][] land, Set<String> visited, int x, int y) {
-        Stack<int[]> stack = new Stack<>();
-        stack.push(new int[]{x, y});
-        visited.add(x + "," + y);
-
-        int minRow = x, minCol = y;
-        int maxRow = x, maxCol = y;
-
-        while (!stack.isEmpty()) {
-            int[] current = stack.pop();
-            int curX = current[0], curY = current[1];
-
-            int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-            for (int[] dir : directions) {
-                int nx = curX + dir[0];
-                int ny = curY + dir[1];
-
-                if (nx >= 0 && nx < land.length && ny >= 0 && ny < land[0].length &&
-                    land[nx][ny] == 1 && !visited.contains(nx + "," + ny)) {
-                    visited.add(nx + "," + ny);
-                    stack.push(new int[]{nx, ny});
-                    minRow = Math.min(minRow, nx);
-                    minCol = Math.min(minCol, ny);
-                    maxRow = Math.max(maxRow, nx);
-                    maxCol = Math.max(maxCol, ny);
-                }
+    private int[] dfs(int i, int j, int[][] land) {
+        int r1 = i,  c1 = j;
+        int maxR = r1, maxC = c1;
+        while(maxR < row && land[maxR][j] == 1) maxR++;
+        while(maxC < col && land[r1][maxC] == 1) maxC++;
+        
+        for(int r = r1; r<maxR; r++) {
+            for(int c = c1;c < maxC; c++) {
+                land[r][c] = 0;
             }
         }
+        maxR--;
+        maxC--;
+        return new int[]{r1, c1, maxR, maxC};
 
-        return new int[]{minRow, minCol, maxRow, maxCol};
     }
 }
