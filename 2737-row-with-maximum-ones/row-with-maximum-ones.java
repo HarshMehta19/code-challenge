@@ -5,9 +5,7 @@ class Solution {
         for(int i=0;i<mat.length;i++) {
             int countOnes = 0;
             for(int j:mat[i]) {
-                if(j == 1){
-                    countOnes++;
-                }
+                countOnes+=j;
             }
             if(countOnes>ans[1]) {
                 ans[0] = i;
