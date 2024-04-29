@@ -13,7 +13,7 @@ class Solution {
             if((k & 1) == 1)
                 count ++;
             k = k>>1;
-            System.out.println("K is: " + k);
+            // System.out.println("K is: " + k);
         }
         return count;
     }
