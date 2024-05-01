@@ -7,11 +7,23 @@ class Solution {
         // return solveRec(nums, 0, false);
 
         // Solve using the recursion + memoization
-        int[][] dp = new int[nums.length][2];
-        for(int[] arr : dp) {
-            Arrays.fill(arr, -100000);
+        // int[][] dp = new int[nums.length][2];
+        // for(int[] arr : dp) {
+        //     Arrays.fill(arr, -100000);
+        // }
+        // return solveMem(nums, 0, 0, dp);
+
+        // Simple solution
+
+        int ans = nums[0];
+        int curSum = 0;
+
+        for (int i = 0; i < nums.length; i ++) {
+            curSum += nums[i];
+            ans = ans < curSum ? curSum : ans;
+            curSum = curSum < 0 ? 0 : curSum;
         }
-        return solveMem(nums, 0, 0, dp);
+        return ans;
 
     }
 
