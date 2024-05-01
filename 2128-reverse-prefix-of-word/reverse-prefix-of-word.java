@@ -4,13 +4,14 @@ class Solution {
         int n = word.length();
         if(index == -1 ) return word;
         else {
-            
-            String str = word.substring(0, index+1);
-            // System.out.println(str);
-            str = reverse(str);
-            String str2 = word.substring(index+1, n);
-            // System.out.println(str2);
-            return str+str2;
+            StringBuilder sb = new StringBuilder(word.substring(0, index+1));
+            return sb.reverse().toString() + word.substring(index+1, n);
+            // String str = word.substring(0, index+1);
+            // // System.out.println(str);
+            // str = reverse(str);
+            // String str2 = word.substring(index+1, n);
+            // // System.out.println(str2);
+            // return str+str2;
 
         }
     }
