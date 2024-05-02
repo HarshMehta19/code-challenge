@@ -1,6 +1,6 @@
 class Solution {
     public int findMaxK(int[] nums) {
-        int max = 0;
+        int max = -1;
         Arrays.sort(nums);
         HashSet<Integer> set = new HashSet<>();
         for(int num : nums) {
@@ -11,7 +11,7 @@ class Solution {
                     max = Math.max(max, num);
             }
         }
-        return max == 0 ? -1 : max;
+        return max;
 
     }
 }
