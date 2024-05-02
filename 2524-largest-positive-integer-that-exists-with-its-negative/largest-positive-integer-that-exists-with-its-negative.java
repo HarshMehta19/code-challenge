@@ -7,7 +7,7 @@ class Solution {
             if(num < 0) {
                 set.add(num);
             } else {
-                if(set.contains(num * -1))
+                if(set.contains(-num))
                     max = Math.max(max, num);
             }
         }
