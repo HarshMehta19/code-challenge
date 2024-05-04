@@ -1,6 +1,5 @@
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
-        // HashSet<Integer> set = new HashSet<>();
         int[] arr = new int[50001];
         for(int person : people) {
             arr[person]++;
