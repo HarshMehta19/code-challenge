@@ -17,7 +17,11 @@ class Solution {
         // return sb.toString();
     }
 
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a%b);
+    private int gcd(int l1, int l2) {
+        if (l2 == 0){
+            return l1;
+        }else{ 
+            return gcd(l2,l1%l2);
+        }
     }
 }
