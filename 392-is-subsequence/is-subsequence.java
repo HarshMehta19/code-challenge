@@ -7,6 +7,7 @@ class Solution {
             }
             indexOfT++;
         }
-        return indexOfS == s.length();
+        if(indexOfS == s.length()) return true;
+        return false;
     }
 }
