@@ -13,7 +13,7 @@ class Solution {
         while(!pq.isEmpty()){
             
             int idx = pq.poll();
-            System.out.println("idx is: "+idx);
+            // System.out.println("idx is: "+idx);
             if(i>3){
                 res[idx] = Integer.toString(i);
             }else if(i==1){
