@@ -42,7 +42,7 @@ class Solution {
         if(root.left == null && root.right == null) {
 
             list.add(root.val);
-            // return;
+            return;
         }
 
         helper(root.left, list);
