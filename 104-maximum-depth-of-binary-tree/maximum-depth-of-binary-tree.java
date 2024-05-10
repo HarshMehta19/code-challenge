@@ -22,13 +22,13 @@ class Solution {
         if(root == null) return 0;
 
         int left = 0, right = 0;
-        if(root.left == null && root.right == null) return 1;
-        if(root.left != null)
-            left = 1 + bfs(root.left, count+1);
+        // if(root.left == null && root.right == null) return 1;
+        // if(root.left != null)
+            left = bfs(root.left, count+1);
         
-        if(root.right != null)
-            right = 1+bfs(root.right, count+1);
+        // if(root.right != null)
+            right = bfs(root.right, count+1);
         
-        return Math.max(left, right);
+        return 1 + Math.max(left, right);
     }
 }
