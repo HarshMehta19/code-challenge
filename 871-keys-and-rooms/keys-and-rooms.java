@@ -4,15 +4,11 @@ class Solution {
         Arrays.fill(keys, -1);
         keys[0]++;
 
-        // for(int i = 0;i<rooms.size();i++){
-            for(int j=0;j<rooms.get(0).size();j++) {
-                if(rooms.get(0).get(j)!=0)
-                    goToKeyRoom(rooms.get(0).get(j), rooms, keys);
-                    // keys[rooms.get(i).get(j)]++;
-            // }
+        for(int key: rooms.get(0)){
+            goToKeyRoom(key, rooms, keys);
         }
-        // for(List<Integer> items : rooms){
-
+        // for(int j=0;j<rooms.get(0).size();j++) {
+        //     goToKeyRoom(rooms.get(0).get(j), rooms, keys);
         // }
 
         for(int i=1;i<rooms.size();i++) {
@@ -25,7 +21,6 @@ class Solution {
         if(keys[room] > 0) return;
         keys[room]++;
         for(int key : rooms.get(room)) {
-            // for(int item: key)
                 goToKeyRoom(key, rooms, keys);
         }
     }
