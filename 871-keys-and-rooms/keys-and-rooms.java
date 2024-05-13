@@ -1,8 +1,8 @@
 class Solution {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
-        int[] keys = new int[rooms.size()];
-        Arrays.fill(keys, -1);
-        keys[0]++;
+        boolean[] keys = new boolean[rooms.size()];
+        // Arrays.fill(keys, -1);
+        keys[0]= true;
 
         for(int key: rooms.get(0)){
             goToKeyRoom(key, rooms, keys);
@@ -12,14 +12,14 @@ class Solution {
         // }
 
         for(int i=1;i<rooms.size();i++) {
-            if(keys[i] == -1) return false;
+            if(keys[i] == false) return false;
         }
         return true;
     }
 
-    private void goToKeyRoom(int room, List<List<Integer>> rooms, int[] keys) {
-        if(keys[room] > 0) return;
-        keys[room]++;
+    private void goToKeyRoom(int room, List<List<Integer>> rooms, boolean[] keys) {
+        if(keys[room]) return;
+        keys[room]= true;
         for(int key : rooms.get(room)) {
                 goToKeyRoom(key, rooms, keys);
         }
