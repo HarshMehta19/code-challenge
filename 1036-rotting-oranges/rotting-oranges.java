@@ -20,7 +20,6 @@ class Solution {
         int x, y;
 
         while(!queue.isEmpty() && fresh > 0) {
-            System.out.println();
             int size = queue.size();
             for(int i=0;i<size;i++) {
                 int[] dir = queue.poll();
