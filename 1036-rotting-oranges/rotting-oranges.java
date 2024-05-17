@@ -4,18 +4,21 @@ class Solution {
         int[] yDirection = new int[]{0, 0, 1, -1};
 
         Queue<int[]> queue = new LinkedList<>();
-        int fresh = 0;
+        int fresh = 0, rotten = 0;
         int rows = grid.length, cols = grid[0].length;
         for(int row = 0;row<rows;row++) {
             for(int col = 0;col<cols;col++) {
                 if(grid[row][col] == 0) continue;
-                if(grid[row][col] == 2)
+                if(grid[row][col] == 2){
+                    rotten++;    
                     queue.offer(new int[]{row, col});
+                }
                 else if(grid[row][col] == 1)
                     fresh++;
             }
         }
         if(fresh == 0) return 0;
+        if(rotten == 0) return -1;
         int time = 0;
         int x, y;
 
