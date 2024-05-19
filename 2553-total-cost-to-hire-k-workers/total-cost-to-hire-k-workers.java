@@ -51,10 +51,16 @@ class Solution {
 
         while(k-- > 0) {
             if(pre.peek() <= post.peek()) {
+                // System.out.println("pre: "+ pre);
+                // System.out.println("post: "+ post);
                 cost += pre.poll();
+                // if(i <= j)
                 pre.offer(costs[i++]);
             } else {
+                // System.out.println("pre: "+ pre);
+                // System.out.println("post: "+ post);
                 cost += post.poll();
+                // if(i<=j)
                 post.offer(costs[j--]);
             }
         }
