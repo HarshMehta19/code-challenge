@@ -12,16 +12,29 @@ public class Solution extends GuessGame {
         int start = 1, end = n;
         // int mid = start + (end - start) / 2;
         // int num = guess(mid);
+        // while(start <= end) {
+        //     int mid = start + (end - start) / 2;
+        //     int guess = guess(mid);
+        //     if(guess == 0) return mid;
+        //     else if(guess == -1) {
+        //         last = mid - 1;
+        //     } else 
+        //         start = mid + 1;
+        // }
+        // return -1;
         while(start <= end) {
             int mid = start + (end - start) / 2;
-            int guess = guess(mid);
-            if(guess == 0) return mid;
-            else if(guess == -1) {
+
+            int num = guess(mid);
+            if(num == 0) return mid;
+            else if(num == -1) {
                 end = mid - 1;
-            } else 
+                // mid = start + (end - start) / 2;
+            } else {
                 start = mid + 1;
+            }
+            // num = guess(mid);
         }
         return -1;
-        
     }
 }
