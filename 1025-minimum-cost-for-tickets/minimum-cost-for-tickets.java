@@ -1,20 +1,25 @@
 class Solution {
     public int mincostTickets(int[] days, int[] costs) {
         
-        int[] dp = new int[days.length + 1];
-        Arrays.fill(dp, -1);
+        // Tabulation
+        return solveTab(days, costs);
 
-        return solveMem(days, costs, 0, dp);
+        // Memoization
+        // int[] dp = new int[days.length + 1];
+        // Arrays.fill(dp, -1);
+
+        // return solveMem(days, costs, 0, dp);
+
         // recursion
         // return solve(days, costs, 0);
     }
 
-    int solveTab(int[] days, int[] costs, int index) {
+    int solveTab(int[] days, int[] costs) {
         int[] dp = new int[days.length+1];
 
         dp[days.length] = 0;
 
-        for(int k = days.length-1;k>=0;k++) {
+        for(int k = days.length-1;k>=0;k--) {
             int option1 = costs[0] + dp[k+1];
         
             // 7 Days pass
