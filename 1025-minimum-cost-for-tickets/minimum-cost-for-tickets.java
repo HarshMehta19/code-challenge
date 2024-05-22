@@ -1,8 +1,30 @@
 class Solution {
     public int mincostTickets(int[] days, int[] costs) {
         
+        // Space optimization
+        Queue<int[]> queue7 = new LinkedList<>();
+        Queue<int[]> queue30 = new LinkedList<>();
+
+        int cost = 0;
+
+        
+        for(int day : days) {
+            while(!queue7.isEmpty() && 7 + queue7.peek()[0] <= day )
+                queue7.poll();
+            
+            while(!queue30.isEmpty() && 30 + queue30.peek()[0] <= day )
+                queue30.poll();
+
+            queue7.offer(new int[]{day, costs[1] + cost});
+            queue30.offer(new int[]{day, costs[2] + cost});
+
+            cost = Math.min(cost + costs[0], Math.min(queue7.peek()[1], queue30.peek()[1]));
+        }
+
+        return cost;
+
         // Tabulation
-        return solveTab(days, costs);
+        // return solveTab(days, costs);
 
         // Memoization
         // int[] dp = new int[days.length + 1];
