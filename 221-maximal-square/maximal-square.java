@@ -1,10 +1,39 @@
 class Solution {
     int maxi;
     public int maximalSquare(char[][] matrix) {
-        maxi = 0;
-        Integer[][] dp = new Integer[matrix.length][matrix[0].length];
-        solveMem(matrix, 0, 0, dp);
+
+        // Tab
+        solveTab(matrix);
         return maxi * maxi;
+        // Memoization
+        // maxi = 0;
+        // Integer[][] dp = new Integer[matrix.length][matrix[0].length];
+        // solveMem(matrix, 0, 0, dp);
+        // return maxi * maxi;
+    }
+
+    void solveTab(char[][] matrix){
+        int row = matrix.length, col = matrix[0].length;
+        int[][] dp = new int[row+1][col+1];
+
+        for(int i=row-1;i>=0;i--) {
+            for(int j=col-1;j>=0;j--) {
+                // if(i+1 >= row || j+1 >= col) continue;
+                int right = dp[i][j+1];
+                int bottom = dp[i+1][j];
+                int dia = dp[i+1][j+1];
+                int ans = 0;
+                if(matrix[i][j] == '1') {
+                    dp[i][j] = 1 + Math.min(right, Math.min(bottom, dia));
+                    maxi = Math.max(maxi, dp[i][j]);
+                    // dp[i][j] = ans;
+                } else
+                    dp[i][j] = 0;
+            }
+
+        }
+        // return dp[0][0];
+
     }
 
     public int solveMem(char[][] matrix, int i, int j, Integer[][] dp) {
