@@ -3,7 +3,7 @@ class Solution {
         //Memoization
         int[][] dp = new int[4][obstacles.length+1];
         for(int[] arr : dp) {
-            Arrays.fill(arr, -1);
+            Arrays.fill(arr, Integer.MAX_VALUE);
         }
 
         return solveMem(obstacles, 2, 0, dp);
@@ -14,17 +14,17 @@ class Solution {
         if(position == obstacles.length -1)
             return 0;
 
-        if(dp[lane][position] != -1) return dp[lane][position];
+        if(dp[lane][position] != Integer.MAX_VALUE) return dp[lane][position];
 
         if(obstacles[position + 1] != lane){
-            return solveMem(obstacles, lane, position+1, dp);
+            return dp[lane][position] = solveMem(obstacles, lane, position+1, dp);
         } else{
-            int ans = Integer.MAX_VALUE;
+            // dp[lane][position] = Integer.MAX_VALUE;
             for(int i =1;i<=3;i++){
                 if(i != lane && obstacles[position] != i)
-                    ans = Math.min(ans, 1+solveMem(obstacles, i, position, dp));
+                    dp[lane][position] = Math.min(dp[lane][position], 1+solveMem(obstacles, i, position, dp));
             }
-            return dp[lane][position] = ans;
+            return dp[lane][position];
         }
     }
     public int solve(int[] obstacles, int lane, int position) {
