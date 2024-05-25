@@ -14,7 +14,7 @@ class Solution {
         if(dp[lane][position] != 0) return dp[lane][position];
 
         if(obstacles[position + 1] != lane){
-            return dp[lane][position] = solveMem(obstacles, lane, position+1, dp);
+            return solveMem(obstacles, lane, position+1, dp);
         } else{
             int ans = Integer.MAX_VALUE;
             for(int i =1;i<=3;i++){
