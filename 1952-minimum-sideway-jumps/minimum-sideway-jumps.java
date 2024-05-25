@@ -2,6 +2,9 @@ class Solution {
     public int minSideJumps(int[] obstacles) {
         //Memoization
         int[][] dp = new int[4][obstacles.length+1];
+        for(int[] arr : dp) {
+            Arrays.fill(arr, -1);
+        }
 
         return solveMem(obstacles, 2, 0, dp);
         // Recursion
@@ -11,7 +14,7 @@ class Solution {
         if(position == obstacles.length -1)
             return 0;
 
-        if(dp[lane][position] != 0) return dp[lane][position];
+        if(dp[lane][position] != -1) return dp[lane][position];
 
         if(obstacles[position + 1] != lane){
             return solveMem(obstacles, lane, position+1, dp);
