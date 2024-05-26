@@ -1,7 +1,10 @@
 class Solution {
     public int minSideJumps(int[] obstacles) {
+        
+        // Space optimization
+        return solveSO(obstacles);
         // Tabulation
-        return solveTab(obstacles);
+        // return solveTab(obstacles);
         
         //Memoization
         // int[][] dp = new int[4][obstacles.length+1];
@@ -12,6 +15,45 @@ class Solution {
         // return solveMem(obstacles, 2, 0, dp);
         // Recursion
         //return solve(obstacles, 2, 0);
+    }
+
+    public int solveSO(int[] obstacles) {
+        int n = obstacles.length -1;
+        int[] curr = new int[4];
+        int[] next = new int[4];
+        Arrays.fill(curr, Integer.MAX_VALUE);
+        Arrays.fill(next, Integer.MAX_VALUE);
+
+        for(int i = 0;i<=3;i++) {
+            next[i] = 0;
+        }
+        // int[][] dp = new int[4][obstacles.length];
+        // for(int[] arr : dp) {
+        //     Arrays.fill(arr, Integer.MAX_VALUE);
+        // }
+
+        // dp[0][n] = 0;
+        // dp[1][n] = 0;
+        // dp[2][n] = 0;
+        // dp[3][n] = 0;
+
+        for(int pos = n-1;pos>=0;pos--) {
+            for(int lane=1;lane<=3;lane++){
+                if(obstacles[pos + 1] != lane){
+                    curr[lane] = next[lane];
+                } else{
+                    int ans = Integer.MAX_VALUE;
+                    for(int i =1;i<=3;i++){
+                        if(i != lane && obstacles[pos] != i)
+                            ans = Math.min(ans, 1 + next[i]);
+                    }
+                    curr[lane] = ans;
+                }
+            }
+            next = curr;
+        }
+        return Math.min(next[2], Math.min((next[1] + 1), (next[3] + 1)));//dp[lane][pos];
+
     }
 
     public int solveTab(int[] obstacles) {
