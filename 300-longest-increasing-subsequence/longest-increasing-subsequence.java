@@ -1,8 +1,12 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
+        // Most optimized one
+
+        return solveOptimal(nums);
+        
         // Space Optimization
-        int n = nums.length;
-        return solveSO(n, nums);
+        // int n = nums.length;
+        // return solveSO(n, nums);
         
         // return solveTab(nums.length, nums);
         // int n = nums.length;
@@ -11,6 +15,28 @@ class Solution {
         //     Arrays.fill(arr, -1);
         // }
         // return solve(n, nums, 0, -1, dp);
+    }
+
+    private int solveOptimal(int a[]) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int length = 1;
+        list.add(a[0]);
+
+        for(int i=1;i<a.length;i++) {
+            if(a[i] > list.get(list.size() - 1)){
+                length++;
+                list.add(a[i]);
+            } else {
+                int index = Collections.binarySearch(list, a[i]);
+
+                if(index < 0){
+                    index = -index - 1;
+                }
+                list.set(index, a[i]);
+
+            }
+        }
+        return length;
     }
 
     private int solveSO(int n, int a[]) {
