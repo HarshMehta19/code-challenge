@@ -1,6 +1,28 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        return solveTab(nums.length, nums);
+        // return solveTab(nums.length, nums);
+        int n = nums.length;
+        int[][] dp = new int[n][n+1];
+        for(int[] arr : dp) {
+            Arrays.fill(arr, -1);
+        }
+        return solve(n, nums, 0, -1, dp);
+    }
+
+    private int solve(int n, int a[], int curr, int prev, int[][] dp) {
+        if(curr == n) return 0;
+        
+        if(dp[curr][prev+1] != -1) return dp[curr][prev+1];
+        
+        int take = 0;
+        
+        if(prev == -1 || a[curr] > a[prev]) {
+            take = 1 + solve(n, a, curr+1, curr, dp);    
+        }
+        
+        int notTake = solve(n, a, curr+1, prev, dp);
+        
+        return dp[curr][prev+1] = Math.max(take, notTake);
     }
 
     private int solveTab(int n, int[] a) {
