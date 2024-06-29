@@ -1,26 +1,32 @@
 class Solution {
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
-        List<List<Integer>> ans = new ArrayList<>();
-        List<List<Integer>> directChild = new ArrayList<>();
-        for(int i=0;i<n;i++) {
-            ans.add(new ArrayList<>());
-            directChild.add(new ArrayList<>());
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer>[] graph = new ArrayList[n];
+
+        for(int i=0;i<n;i++)
+        {
+            res.add(new ArrayList<>());
+            graph[i] = new ArrayList<>();
         }
 
         for(int[] edge : edges) {
-            directChild.get(edge[0]).add(edge[1]);
+            int parent = edge[0];
+            int child = edge[1];
+            graph[parent].add(child);
         }
-        for (int i = 0; i < n; i++) 
-        dfs(i, i, ans, directChild);
-    return ans;
+
+        for(int i=0;i<n;i++)
+            traversal(i, i, new boolean[n], graph, res);
+        return res;
+
     }
 
-    private void dfs(int x, int curr, List<List<Integer>>ans, List<List<Integer>>directChild) {
-        for(int ch: directChild.get(curr)) {
-            if(ans.get(ch).size() == 0 || ans.get(ch).get(ans.get(ch).size() - 1) != x) {
-                ans.get(ch).add(x);
-                dfs(x, ch, ans, directChild);
-            }
+    public void traversal(int child, int parent, boolean[] visited, List<Integer>[] graph, List<List<Integer>> res) {
+        visited[child] = true;
+        for(int edge : graph[child]){
+            if(visited[edge]) continue;
+            res.get(edge).add(parent);
+            traversal(edge, parent, visited, graph, res);
         }
     }
 }
