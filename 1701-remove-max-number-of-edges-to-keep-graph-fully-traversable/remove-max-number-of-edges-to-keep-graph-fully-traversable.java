@@ -54,10 +54,10 @@ class UnionFind{
         if(x==y) return 0;
 
         if(comp[x]>comp[y]){
-            comp[x] += comp[y];
+            // comp[x] += comp[y];
             rep[y] = x;
         } else {
-            comp[y] += comp[x];
+            // comp[y] += comp[x];
             rep[x] = y;
         }
         edges --;
