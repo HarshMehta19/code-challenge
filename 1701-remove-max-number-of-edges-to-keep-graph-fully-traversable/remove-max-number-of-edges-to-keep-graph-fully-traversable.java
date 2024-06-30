@@ -27,16 +27,16 @@ class Solution {
 class UnionFind{
     int edges;
     int[] rep;
-    int[] comp;
+    // int[] comp;
 
     UnionFind(int n) {
         edges = n;
         rep = new int[n+1];
-        comp = new int[n+1];
+        // comp = new int[n+1];
 
         for(int i=0;i<=n;i++) {
             rep[i] = i;
-            comp[i] = i;
+            // comp[i] = i;
         }
     }
 
@@ -53,7 +53,7 @@ class UnionFind{
 
         if(x==y) return 0;
 
-        if(comp[x]>comp[y]){
+        if(x>y){
             // comp[x] += comp[y];
             rep[y] = x;
         } else {
