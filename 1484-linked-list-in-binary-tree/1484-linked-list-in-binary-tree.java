@@ -25,7 +25,18 @@
  */
 class Solution {
     public boolean isSubPath(ListNode head, TreeNode root) {
-        return dfs(head, head, root);
+        boolean isPath = helper(head, root);
+        if(isPath) return true;
+        if(root == null) return false; 
+        return isSubPath(head, root.left) || isSubPath(head, root.right);
+    }
+
+    boolean helper(ListNode head, TreeNode root) {
+        if(head == null) return true;
+
+        if(root == null || root.val != head.val) return false;
+
+        return helper(head.next, root.left) || helper(head.next, root.right);
     }
 
     boolean dfs(ListNode head, ListNode cur, TreeNode root){
