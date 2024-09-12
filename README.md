@@ -34,5 +34,22 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Bit Manipulation
 |  |
 | ------- |
+| [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
 | [2323-minimum-bit-flips-to-convert-number](https://github.com/HarshMehta19/code-challenge/tree/master/2323-minimum-bit-flips-to-convert-number) |
+## Array
+|  |
+| ------- |
+| [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
+## Hash Table
+|  |
+| ------- |
+| [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
+## String
+|  |
+| ------- |
+| [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
+## Counting
+|  |
+| ------- |
+| [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
 <!---LeetCode Topics End-->
