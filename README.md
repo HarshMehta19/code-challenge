@@ -43,6 +43,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 | [0539-minimum-time-difference](https://github.com/HarshMehta19/code-challenge/tree/master/0539-minimum-time-difference) |
 | [1435-xor-queries-of-a-subarray](https://github.com/HarshMehta19/code-challenge/tree/master/1435-xor-queries-of-a-subarray) |
 | [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
@@ -56,6 +57,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## String
 |  |
 | ------- |
+| [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 | [0539-minimum-time-difference](https://github.com/HarshMehta19/code-challenge/tree/master/0539-minimum-time-difference) |
 | [0920-uncommon-words-from-two-sentences](https://github.com/HarshMehta19/code-challenge/tree/master/0920-uncommon-words-from-two-sentences) |
 | [1473-find-the-longest-substring-containing-vowels-in-even-counts](https://github.com/HarshMehta19/code-challenge/tree/master/1473-find-the-longest-substring-containing-vowels-in-even-counts) |
@@ -77,5 +79,10 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Sorting
 |  |
 | ------- |
+| [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 | [0539-minimum-time-difference](https://github.com/HarshMehta19/code-challenge/tree/master/0539-minimum-time-difference) |
+## Greedy
+|  |
+| ------- |
+| [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 <!---LeetCode Topics End-->
