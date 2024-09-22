@@ -45,6 +45,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0134-gas-station](https://github.com/HarshMehta19/code-challenge/tree/master/0134-gas-station) |
 | [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 | [0539-minimum-time-difference](https://github.com/HarshMehta19/code-challenge/tree/master/0539-minimum-time-difference) |
 | [1435-xor-queries-of-a-subarray](https://github.com/HarshMehta19/code-challenge/tree/master/1435-xor-queries-of-a-subarray) |
@@ -88,6 +89,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Greedy
 |  |
 | ------- |
+| [0134-gas-station](https://github.com/HarshMehta19/code-challenge/tree/master/0134-gas-station) |
 | [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 ## Dynamic Programming
 |  |
