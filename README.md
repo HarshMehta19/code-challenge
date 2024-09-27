@@ -49,6 +49,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0179-largest-number](https://github.com/HarshMehta19/code-challenge/tree/master/0179-largest-number) |
 | [0539-minimum-time-difference](https://github.com/HarshMehta19/code-challenge/tree/master/0539-minimum-time-difference) |
 | [0729-my-calendar-i](https://github.com/HarshMehta19/code-challenge/tree/master/0729-my-calendar-i) |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 | [1435-xor-queries-of-a-subarray](https://github.com/HarshMehta19/code-challenge/tree/master/1435-xor-queries-of-a-subarray) |
 | [1786-count-the-number-of-consistent-strings](https://github.com/HarshMehta19/code-challenge/tree/master/1786-count-the-number-of-consistent-strings) |
 | [2494-sum-of-prefix-scores-of-strings](https://github.com/HarshMehta19/code-challenge/tree/master/2494-sum-of-prefix-scores-of-strings) |
@@ -85,6 +86,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Prefix Sum
 |  |
 | ------- |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 | [1435-xor-queries-of-a-subarray](https://github.com/HarshMehta19/code-challenge/tree/master/1435-xor-queries-of-a-subarray) |
 | [1473-find-the-longest-substring-containing-vowels-in-even-counts](https://github.com/HarshMehta19/code-challenge/tree/master/1473-find-the-longest-substring-containing-vowels-in-even-counts) |
 ## Brainteaser
@@ -138,16 +140,20 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0729-my-calendar-i](https://github.com/HarshMehta19/code-challenge/tree/master/0729-my-calendar-i) |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 ## Design
 |  |
 | ------- |
 | [0729-my-calendar-i](https://github.com/HarshMehta19/code-challenge/tree/master/0729-my-calendar-i) |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 ## Segment Tree
 |  |
 | ------- |
 | [0729-my-calendar-i](https://github.com/HarshMehta19/code-challenge/tree/master/0729-my-calendar-i) |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 ## Ordered Set
 |  |
 | ------- |
 | [0729-my-calendar-i](https://github.com/HarshMehta19/code-challenge/tree/master/0729-my-calendar-i) |
+| [0731-my-calendar-ii](https://github.com/HarshMehta19/code-challenge/tree/master/0731-my-calendar-ii) |
 <!---LeetCode Topics End-->
