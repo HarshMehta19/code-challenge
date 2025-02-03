@@ -1,6 +1,6 @@
 class Solution {
     public int longestMonotonicSubarray(int[] nums) {
-        if(nums.length < 0) return 0;
+        if(nums.length == 0) return 0;
         int ans=1,res = 1, trend = 2; // 0- decreasing, 1 - increasing, 2 - unknown
 
         for(int i=1;i<nums.length;i++) {
