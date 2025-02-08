@@ -1,32 +1,36 @@
 class NumberContainers {
 
-    HashMap<Integer, TreeSet<Integer>> map;
-    HashMap<Integer, Integer> trackIndx;
-    public NumberContainers() {
+    HashMap<Integer,PriorityQueue<Integer>> res;
+    HashMap<Integer,Integer> index_val;
 
-        map = new HashMap<>();
-        trackIndx = new HashMap<>();
-        
+    public NumberContainers() {
+        res = new HashMap<>();
+        index_val = new HashMap<>();
     }
     
     public void change(int index, int number) {
-        if(trackIndx.containsKey(index)) {
-            int prev = trackIndx.get(index);
-            map.get(prev).remove(index);
-            if(map.get(prev).isEmpty()) {
-                map.remove(prev);
+
+        if(index_val.containsKey(index)){
+            int num = index_val.get(index);
+            if(num == number){
+                return ;
             }
+
+            res.get(num).remove(index);
         }
 
-        trackIndx.put(index, number);
-        map.computeIfAbsent(number, s -> new TreeSet<>()).add(index);
+        res.computeIfAbsent(number, k-> new PriorityQueue<>()).offer(index);
+        index_val.put(index, number);
     }
     
-    public int find(int number) {
-        if(!map.containsKey(number)) return -1;
-
-        return map.get(number).first();
-
+    public int find(int number) 
+    {
+        PriorityQueue<Integer> pq = res.getOrDefault(number, new PriorityQueue<>());
+        if(pq.size() == 0)
+        {
+            return -1;
+        }
+        return pq.peek();
     }
 }
 
