@@ -2,10 +2,9 @@ class Solution {
     public String removeOccurrences(String s, String part) {
         StringBuilder sb = new StringBuilder(s);
 
-        int i = sb.indexOf(part);
-        while(i != -1) {
+        while(sb.indexOf(part) != -1) {
+            int i = sb.indexOf(part);
             sb.delete(i, i + part.length());
-            i = sb.indexOf(part);
         }
 
         return sb.toString();
