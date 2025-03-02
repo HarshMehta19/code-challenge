@@ -25,13 +25,13 @@ class Solution {
         while(j<nums2.length) {
             list.add(nums2[j++]);
         }
+        return list.toArray(new int[list.size()][]);
+        // int[][] res = new int[list.size()][2];
 
-        int[][] res = new int[list.size()][2];
+        // for(int k=0;k<list.size();k++) {
+        //     res[k] = list.get(k);
+        // }
 
-        for(int k=0;k<list.size();k++) {
-            res[k] = list.get(k);
-        }
-
-        return res;
+        // return res;
     }
 }
