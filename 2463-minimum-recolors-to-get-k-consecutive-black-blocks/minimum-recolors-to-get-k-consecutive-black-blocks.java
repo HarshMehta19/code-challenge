@@ -5,10 +5,8 @@ class Solution {
         for(int j=0;j<n;j++) {
             if(blocks.charAt(j) == 'W') {
                 flips++;
-                count++;
-            } else if(blocks.charAt(j) == 'B') {
-                count++;
             }
+            count++;
             if(count == k) {
                 ans = Math.min(ans, flips);
                 if(blocks.charAt(i) == 'W') {
