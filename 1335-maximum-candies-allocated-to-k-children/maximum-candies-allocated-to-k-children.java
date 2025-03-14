@@ -1,35 +1,30 @@
 class Solution {
     public int maximumCandies(int[] candies, long k) {
-        int max = 0;
-        for (int candy : candies)
-            max = Math.max(candy, max);
-
-        int left = 1, right = max, ans = 0;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (canProvide(candies, k, mid)) {
-                ans = mid;
-                left = mid + 1;
-            } else
-                right = mid-1;
+       long sum = 0;  // Use long to prevent integer overflow
+        for (int candy : candies) {
+            sum += candy;
         }
 
-        return ans;
-    }
+        if (sum < k) return 0;  // If total candies are less than kids, return 0
 
-    private boolean canProvide(int[] candies, long k, int count) {
-        if (count == 0)
-            return true;
+        long low = 1, high = sum / k; // Use long for high
+        int ans = 0;
 
-        long total = 0;
-        for (int candy : candies) {
-            total += candy / count;
-            if (total >= k) {
-                // System.out.println("count: "+ count +", total: " + total);
-                return true;
+        while (low <= high) {
+            long mid = (low + high) / 2; // Use long mid to avoid overflow
+            long count = 0;
+
+            for (int candy : candies) {
+                count += candy / mid;
+            }
+
+            if (count >= k) {
+                ans = (int) mid;  // Store the maximum candies per child
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
-        return false;
+        return ans;
     }
 }
