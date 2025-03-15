@@ -1,6 +1,9 @@
 class Solution {
     public int minCapability(int[] nums, int k) {
-        int left = 1, right = (int)1e9, n = nums.length;
+        int max = 1;
+        for(int num : nums)
+            max = Math.max(max, num);
+        int left = 1, right = max, n = nums.length;
         while (left < right) {
             int mid = (left + right) / 2, take = 0;
             for (int i = 0; i < n; ++i)
