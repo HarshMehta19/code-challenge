@@ -1,6 +1,12 @@
 class Solution {
     public long repairCars(int[] ranks, int cars) {
-        long low = 0, high = (long)1e14;
+         int minRank = ranks[0];
+        for (int rank : ranks) {
+            minRank = Math.min(minRank, rank);
+        }
+
+        // Minimum possible time, Maximum possible time
+        long low = 1, high = 1L * minRank * cars * cars;
         while(low < high) {
             long mid = (low + high) / 2;
             int count = 0;
