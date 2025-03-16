@@ -1,6 +1,6 @@
 class Solution {
     public long repairCars(int[] ranks, int cars) {
-        long low = 0, high = Long.MAX_VALUE;
+        long low = 0, high = (long)1e14;
         while(low < high) {
             long mid = (low + high) / 2;
             int count = 0;
