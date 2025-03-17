@@ -7,7 +7,6 @@ class Solution {
         }
 
         for(int i=1;i<501;i++) {
-            if(freq[i] == 0) continue;
 
             if(freq[i] % 2 == 1) return false;
 
