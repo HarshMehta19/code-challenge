@@ -6,7 +6,7 @@ class Solution {
             if(nums[left] == 0) {
                 ans++;
                 for(int i = left;i<left+3;i++) {
-                    nums[i] = nums[i] == 0 ? 1 : 0;
+                    nums[i] = 1 - nums[i];
                 }
             }
 
