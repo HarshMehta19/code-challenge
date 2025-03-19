@@ -5,9 +5,9 @@ class Solution {
         while(right < nums.length) {
             if(nums[left] == 0) {
                 ans++;
-                for(int i = left;i<left+3;i++) {
-                    nums[i] = 1 - nums[i];
-                }
+                nums[left] = 1 - nums[left];
+                nums[left + 1] = 1 - nums[left + 1];
+                nums[left + 2] = 1 - nums[left + 2];
             }
 
             left++;
