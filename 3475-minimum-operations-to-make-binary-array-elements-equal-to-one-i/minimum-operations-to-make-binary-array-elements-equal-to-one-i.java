@@ -14,9 +14,7 @@ class Solution {
             right++;
         }
 
-        for(int num : nums) {
-            if(num == 0) return -1;
-        }
+        if(nums[nums.length - 1] == 0 || nums[nums.length - 2] == 0) return -1;
 
         return ans;
     }
