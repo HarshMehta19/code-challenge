@@ -1,7 +1,7 @@
 class Solution {
     public boolean checkValidCuts(int n, int[][] rectangles) {
-        ArrayList<int[]> xCoord = new ArrayList<>();
-        ArrayList<int[]> yCoord = new ArrayList<>();
+        List<int[]> xCoord = new ArrayList<>();
+        List<int[]> yCoord = new ArrayList<>();
 
         for(int[]rectangle: rectangles) {
             xCoord.add(new int[]{rectangle[0], rectangle[2]});
@@ -14,7 +14,7 @@ class Solution {
         return Math.max(countNonOverlapping(xCoord), countNonOverlapping(yCoord)) >= 3;
     }
 
-    private int countNonOverlapping(ArrayList<int[]> intervals) {
+    private int countNonOverlapping(List<int[]> intervals) {
         int sections = 1;
         int maxEnd = intervals.get(0)[1];
 
