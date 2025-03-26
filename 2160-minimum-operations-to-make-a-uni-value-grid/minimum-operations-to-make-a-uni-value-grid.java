@@ -1,23 +1,23 @@
 class Solution {
     public int minOperations(int[][] grid, int x) {
-        int sum = 0;
-         List<Integer> list = new ArrayList<>();
+        int index = 0;
+        int[] arr = new int[grid.length * grid[0].length];
+
         for(int[]ele : grid) {
             for(int num: ele) {
                 if(num % x != grid[0][0] % x)
                     return -1;
-                list.add(num);
+                arr[index++] = num;
             }
         }
 
-        Collections.sort(list);
-        int median = list.get(list.size() / 2);
+        Arrays.sort(arr);
+        int median = arr[arr.length / 2];
         int result = 0;
 
-        for(int num: list) {
+        for(int num: arr) {
             int diff = Math.abs(num - median);
             result+= diff / x;
-
         }
 
         return result;
