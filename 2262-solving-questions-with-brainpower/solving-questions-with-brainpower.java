@@ -1,19 +1,15 @@
 class Solution {
     public long mostPoints(int[][] questions) {
-        long[] dp = new long[questions.length];
-        return helper(questions, 0, dp);
-    }
+        long[] dp = new long[questions.length + 1];
+        int n = questions.length;
+        for(int i=n-1;i>=0;i--) {
+            int points = questions[i][0];
+            int jump = questions[i][1];
 
-    private long helper(int[][] questions, int index, long[] dp) {
-        if (index >= questions.length)
-            return 0;
+            int nextPos = Math.min(n, jump + i + 1);
+            dp[i] = Math.max(dp[i+1], points + dp[nextPos]);
+        }
 
-        if (dp[index] > 0)
-            return dp[index];
-
-        dp[index] = Math.max(helper(questions, index + 1, dp),
-                questions[index][0] + helper(questions, index + 1 + questions[index][1], dp));
-
-        return dp[index];
+        return dp[0];
     }   
 }
