@@ -6,6 +6,7 @@ class Solution:
         for target in range(1, int(sqrt(n))+1):
             target = target**2
             for j in range(target, n+1):
+                
                 dp[j] = min(dp[j], 1 + dp[j-target])
-
+                
         return dp[n]
