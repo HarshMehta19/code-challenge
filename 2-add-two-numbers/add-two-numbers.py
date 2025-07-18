@@ -13,8 +13,8 @@ class Solution:
             newVal = total % 10
             carry = total // 10
             dummy2.next = ListNode(newVal)
-            l1 = l1.next if l1 else l1
-            l2 = l2.next if l2 else l2
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
             dummy2 = dummy2.next
 
