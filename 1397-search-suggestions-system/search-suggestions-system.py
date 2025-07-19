@@ -1,5 +1,17 @@
 class Solution:
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+    # Key Ideas:
+
+    # Sort the product list lexicographically.
+
+    # For each prefix of the search word:
+
+    # Maintain a sliding window (l to r) of matching product indices.
+
+    # Narrow the window for each character by checking if the product matches the prefix.
+
+    # Append the first 3 valid products from the current window to the result.
+
         res = []
         products.sort()
 
