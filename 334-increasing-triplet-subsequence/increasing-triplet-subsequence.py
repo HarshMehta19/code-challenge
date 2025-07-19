@@ -2,8 +2,8 @@ class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         if len(nums) < 3: return False
 
-        a = float('inf')
-        b = float('inf')
+        a = inf
+        b = inf
         for n in nums:
             if n <=a:
                 a = n
