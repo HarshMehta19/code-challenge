@@ -1,4 +1,6 @@
 class Solution:
+    # Use two pointers: one to read and count consecutive characters, another to write the compressed form in-place; 
+    # Handles multi-digit counts by converting count to string and writing each digit separately.
     def compress(self, chars: List[str]) -> int:
         ans = i = 0
 
@@ -15,5 +17,4 @@ class Solution:
                 for c in str(count):
                     chars[ans] = c
                     ans +=1
-
         return ans
