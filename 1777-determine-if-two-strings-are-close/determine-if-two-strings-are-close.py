@@ -6,5 +6,5 @@ class Solution:
         n1 = Counter([v for v in c1.values()])
         n2 = Counter([v for v in c2.values()])
 
-        print(c1, c2, n1, n2)
+        # print(c1, c2, n1, n2)
         return c1 == c2 or (n1 == n2 and set(word1) == set(word2))
