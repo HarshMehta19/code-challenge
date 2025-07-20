@@ -1,4 +1,6 @@
 class Solution:
+    # Modified binary search: if subarray is sorted, update result and break; otherwise, compare mid with start to decide which half to search while tracking the minimum.
+
     def findMin(self, nums: List[int]) -> int:
         res = nums[0]
         start, end = 0, len(nums) - 1
