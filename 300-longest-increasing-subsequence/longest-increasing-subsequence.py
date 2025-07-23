@@ -10,10 +10,15 @@ class Solution:
                 max_len +=1
 
             else:
-                ind = 0
-                while ind < len(lst) and lst[ind] < num:
-                    ind +=1
-                lst[ind] = num
+                left, right = 0, len(lst) - 1
+                while left < right:
+                    mid = left + (right - left) // 2
+                    if lst[mid] < num:
+                        left = mid + 1
+                    else:
+                        right = mid
+                lst[left] = num
+
         return max_len
         # n = len(nums)
         # if n == 0:
