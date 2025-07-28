@@ -1,11 +1,13 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         wordDict = set(wordDict)
-
+        memo = {}
         def backtrack(i: int):
             if i == len(s):
                 return [""]
 
+            if i in memo:
+                return memo[i]
             res = []
             for j in range(i,len(s)):
                 w = s[i:j+1]
@@ -22,6 +24,7 @@ class Solution:
                     if substr:
                         sentence += " " + substr
                     res.append(sentence)
+            memo[i] = res
             return res
 
         # cur = []
