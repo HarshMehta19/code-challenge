@@ -3,21 +3,28 @@ class Solution:
         wordDict = set(wordDict)
 
         def backtrack(i: int):
-
             if i == len(s):
-                res.append(" ".join(cur))
-                return
+                return [""]
 
+            res = []
             for j in range(i,len(s)):
                 w = s[i:j+1]
 
-                if w in wordDict:
-                    cur.append(w)
-                    backtrack(j+1)
-                    cur.pop()
+                if w not in wordDict:
+                    continue
                 
+                strings = backtrack(j+1)
+                if not strings:
+                    continue
+                
+                for substr in strings:
+                    sentence = w
+                    if substr:
+                        sentence += " " + substr
+                    res.append(sentence)
+            return res
 
-        cur = []
-        res = []
-        backtrack(0)
-        return res
+        # cur = []
+        # res = []
+        return backtrack(0)
+        # return res
