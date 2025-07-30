@@ -4,11 +4,10 @@ class Solution:
         heap = []
 
         for i in freq.keys():
-            heappush(heap, (-freq[i], i))
-        ans = []
+            heappush(heap, (freq[i], i))
 
-        while k > 0:
-            k-=1
-            ans.append(heappop(heap)[1])
+            if len(heap) > k:
+                heapq.heappop(heap)
+        ans = [pair[1] for pair in heap]
 
         return ans
