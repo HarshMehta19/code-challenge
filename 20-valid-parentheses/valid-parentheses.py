@@ -5,7 +5,7 @@ class Solution:
         for char in s:
             if char in pair.values():
                 stack.append(char)
-            elif char in pair.keys():
+            else:
                 if not stack or stack.pop() != pair[char]:
                     return False
         return not stack
