@@ -3,8 +3,8 @@ class Solution:
         freq = Counter(nums)
         heap = []
 
-        for i in freq.keys():
-            heappush(heap, (freq[i], i))
+        for num, count in freq.items():
+            heappush(heap, (count, num))
 
             if len(heap) > k:
                 heapq.heappop(heap)
