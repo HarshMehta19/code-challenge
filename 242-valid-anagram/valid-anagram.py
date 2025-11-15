@@ -9,7 +9,7 @@ class Solution:
 
         for char in t:
             if char not in counter or counter[char] == 0:
-                return False
-            counter[char]-=1
+                 return False
+            counter[char] -=1
 
         return True
