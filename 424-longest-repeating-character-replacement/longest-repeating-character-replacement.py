@@ -7,7 +7,7 @@ class Solution:
             count[value] = count.get(value, 0) + 1
             max_freq = max(count[value], max_freq)
 
-            while (idx - l + 1) - max_freq > k:
+            if (idx - l + 1) - max_freq > k:
                 count[s[l]]-=1
                 l+=1
 
