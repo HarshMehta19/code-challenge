@@ -5,7 +5,7 @@ class Solution:
         """
         i,j,k = m-1, n-1, m+n-1
 
-        while j >= 0 and i>= 0:
+        while j>= 0 and i >= 0:
             if nums1[i] > nums2[j]:
                 nums1[k] = nums1[i]
                 k-=1
@@ -14,7 +14,7 @@ class Solution:
                 nums1[k] = nums2[j]
                 k-=1
                 j-=1
-            
-        while j >=0:
+
+        while j>=0:
             nums1[k] = nums2[j]
             j, k = j-1, k-1
