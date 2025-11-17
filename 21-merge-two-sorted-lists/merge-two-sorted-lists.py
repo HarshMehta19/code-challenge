@@ -9,16 +9,15 @@ class Solution:
         tmp = node
 
         while list1 and list2:
-
             if list1.val < list2.val:
                 tmp.next = list1
+                tmp = tmp.next
                 list1 = list1.next
             else:
                 tmp.next = list2
+                tmp = tmp.next
                 list2 = list2.next
 
-            tmp = tmp.next
-        
         if list1:
             tmp.next = list1
 
