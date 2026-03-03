@@ -1,33 +1,29 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         wordDict = set(wordDict)
-        memo = {}
-        def backtrack(i: int):
+
+        def backtrack(i : int):
             if i == len(s):
                 return [""]
-
-            if i in memo:
-                return memo[i]
-
             res = []
-
             for j in range(i, len(s)):
                 w = s[i:j+1]
 
                 if w not in wordDict:
                     continue
-                
-                strings = backtrack(j+1)
 
-                if not strings:
+                words = backtrack(j+1)
+
+                if not words:
                     continue
-                
-                for substr in strings:
-                    sentence = w
-                    if substr:
-                        sentence += " " + substr
-                    res.append(sentence)
-            
-            memo[i] = res
+
+                for word in words:
+                    sen = w
+                    if word:
+                        sen += " " + word
+                    res.append(sen)
+
             return res
-        return  backtrack(0)
+        
+        return backtrack(0)
+                    
