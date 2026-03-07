@@ -5,8 +5,12 @@ class Solution:
 
         alt1, alt2 = "", ""
         for i in range(len(s)):
-            alt1 += "0" if i % 2 else "1"
-            alt2 += "1" if i % 2 else "0"
+            if i % 2 == 0:
+                alt1 += "0"
+                alt2 += "1"
+            else:
+                alt1 += "1"
+                alt2 += "0"
 
         res = len(s)
 
