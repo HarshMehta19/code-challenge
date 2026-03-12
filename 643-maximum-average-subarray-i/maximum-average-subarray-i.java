@@ -13,7 +13,6 @@ class Solution {
             curr_sum -= nums[left++];
             max_sum = Math.max(max_sum, curr_sum);
         }
-        System.out.println("max_sum: " + max_sum);
         return (double) max_sum / k;
     }
 }
