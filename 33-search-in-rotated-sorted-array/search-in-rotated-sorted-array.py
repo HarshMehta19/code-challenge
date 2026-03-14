@@ -5,12 +5,12 @@ class Solution:
         while left <= right:
             m = left + (right - left) // 2
 
-            if nums[m]==target:
+            if nums[m] == target:
                 return m
-            
+
             if nums[m] >= nums[left] <= nums[m]:
                 if nums[left] <= target < nums[m]:
-                    right = m - 1 #search left part
+                    right = m -1
                 else:
                     left = m + 1
             else:
