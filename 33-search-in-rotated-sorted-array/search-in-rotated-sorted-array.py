@@ -8,7 +8,7 @@ class Solution:
             if nums[m] == target:
                 return m
 
-            if nums[m] >= nums[left] <= nums[m]:
+            if nums[m] >= nums[left] >= nums[right]:
                 if nums[left] <= target < nums[m]:
                     right = m -1
                 else:
