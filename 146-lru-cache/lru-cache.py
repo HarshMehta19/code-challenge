@@ -1,24 +1,54 @@
 class LRUCache:
 
+    class Node:
+        def __init__(self, key: int, val: int):
+            self.key, self.val = key, val
+            self.prev = self.next = None
+
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.dic = OrderedDict()
+        self.head = self.Node(0, 0)
+        self.tail = self.Node(0, 0)
+        self.cache = {} # empty cache
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def _addNode(self, newNode):
+        temp = self.head.next
+        newNode.next = temp
+        newNode.prev = self.head
+        temp.prev = newNode
+        self.head.next = newNode
+
+    def _deleteNode(self, delNode):
+        delNode.next.prev = delNode.prev
+        delNode.prev.next = delNode.next
+
 
     def get(self, key: int) -> int:
-        if key not in self.dic:
-            return -1
-        self.dic.move_to_end(key)
-        return self.dic[key]
+        if key in self.cache:
+            resNode = self.cache[key]
+            ans = resNode.val
+            del self.cache[key]
+            self._deleteNode(resNode)
+            self._addNode(resNode)
+            self.cache[key] = self.head.next
+            return ans
+        return -1
 
     def put(self, key: int, value: int) -> None:
-        if key in self.dic:
-            self.dic.move_to_end(key)
+        if key in self.cache:
+            cur = self.cache[key]
+            del self.cache[key]
+            self._deleteNode(cur)
 
-        self.dic[key] = value
+        if len(self.cache) == self.capacity:
+            del self.cache[self.tail.prev.key]
+            self._deleteNode(self.tail.prev)
 
-        if len(self.dic) > self.capacity:
-            self.dic.popitem(False)
-
+        self._addNode(self.Node(key, value))
+        self.cache[key] = self.head.next
+        
 
 
 # Your LRUCache object will be instantiated and called as such:
