@@ -26,15 +26,12 @@ class LRUCache:
 
 
     def get(self, key: int) -> int:
-        if key in self.cache:
-            resNode = self.cache[key]
-            ans = resNode.val
-            del self.cache[key]
-            self._deleteNode(resNode)
-            self._addNode(resNode)
-            self.cache[key] = self.head.next
-            return ans
-        return -1
+        if key not in self.cache:
+            return -1
+        node = self.cache[key]
+        self._deleteNode(node)
+        self._addNode(node)
+        return node.val
 
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
