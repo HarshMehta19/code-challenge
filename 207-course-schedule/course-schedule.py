@@ -1,9 +1,8 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        preMap = {i:[] for i in range(numCourses)}
-
+        adj = {i: [] for i in range(numCourses)}
         for crs, pre in prerequisites:
-            preMap[crs].append(pre)
+            adj[crs].append(pre)
 
         visiting = set()
 
@@ -11,16 +10,16 @@ class Solution:
             if crs in visiting:
                 return False
 
-            if preMap[crs] == []: return True
+            if adj[crs] == [] : return True
 
             visiting.add(crs)
 
-            for pre in preMap[crs]:
+            for pre in adj[crs]:
                 if not dfs(pre):
                     return False
-
+            
             visiting.remove(crs)
-            preMap[crs] =  []
+            adj[crs] = []
             return True
 
         for c in range(numCourses):
@@ -28,5 +27,3 @@ class Solution:
                 return False
 
         return True
-            
-
