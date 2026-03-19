@@ -10,11 +10,10 @@ from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         old_to_new = {}
-
         def dfs(node):
             if node in old_to_new:
                 return old_to_new[node]
-
+            
             new = Node(node.val)
 
             old_to_new[node] = new
@@ -25,3 +24,4 @@ class Solution:
             return new
 
         return dfs(node) if node else None
+            
