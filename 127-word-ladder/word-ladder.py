@@ -23,4 +23,6 @@ class Solution:
                         visited.add(word)
                         queue.append((word, level + 1))
 
+                all_combo_dict[intermediate_word] = []
+
         return 0
