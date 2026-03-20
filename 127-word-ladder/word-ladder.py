@@ -8,6 +8,7 @@ class Solution:
         for word in wordList:
             for i in range(L):
                 all_combo_dict[word[:i] + "*" + word[i+1:]].append(word)
+
         queue = deque([(beginWord, 1)])
         visited = set()
         visited.add(beginWord)
@@ -20,6 +21,6 @@ class Solution:
                         return level + 1
                     if word not in visited:
                         visited.add(word)
-                        queue.append((word, level+1))
+                        queue.append((word, level + 1))
+
         return 0
-        
