@@ -7,12 +7,12 @@ class Solution:
             if total == target:
                 res.append(cur.copy())
                 return
-            
+
             for j in range(i, len(candidates)):
                 if total + candidates[j] > target:
                     return
                 cur.append(candidates[j])
-                dfs(j, cur, total + candidates[j])
+                dfs(j, cur, total+candidates[j])
                 cur.pop()
 
         dfs(0, [], 0)
