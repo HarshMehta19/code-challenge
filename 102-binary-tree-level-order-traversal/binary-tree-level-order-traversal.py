@@ -22,8 +22,7 @@ class Solution:
                 if node.left: q.append(node.left)
                 if node.right: q.append(node.right)
 
-            if level:
-                res.append(level)
+            res.append(level)
 
         return res
 
