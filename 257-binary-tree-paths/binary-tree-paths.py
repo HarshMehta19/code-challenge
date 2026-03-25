@@ -10,11 +10,12 @@ class Solution:
         def rec(node, path):
             if not node:
                 return
-            path += str(node.val)
+            path.append(str(node.val))
             if not node.left and not node.right:
-                res.append(path)
+                res.append('->'.join(path))
             else:
-                rec(node.left, path + '->')
-                rec(node.right, path + '->')
-        rec(root, '')
+                rec(node.left, path)
+                rec(node.right, path)
+            path.pop()
+        rec(root, [])
         return res
