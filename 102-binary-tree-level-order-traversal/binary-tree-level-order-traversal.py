@@ -8,6 +8,8 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
 
         #------------------- BFS---------------------------#
+        if root is None:
+            return []
         res = []
         q = deque()
         q.append(root)
@@ -16,10 +18,9 @@ class Solution:
             level = []
             for _ in range(len(q)):
                 node = q.popleft()
-                if node:
-                    level.append(node.val)
-                    q.append(node.left)
-                    q.append(node.right)
+                level.append(node.val)
+                if node.left: q.append(node.left)
+                if node.right: q.append(node.right)
 
             if level:
                 res.append(level)
