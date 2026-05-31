@@ -1,31 +1,18 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        freq = [[] for _ in range(len(nums) + 1)]
-        count = {}
+        freq = Counter(nums)
 
-        for num in nums:
-            count[num] = count.get(num, 0) + 1
+        heap = []
 
-        for num, cnt in count.items():
-            freq[cnt].append(num)
+        for key, val in freq.items():
+            if len(heap) == k:
+                if val > heap[0][0]:
+                    heapq.heappop(heap)
+                    heapq.heappush(heap, (val, key))
+            else:
+                heapq.heappush(heap, (val, key))
 
-        res = []
-        for idx in range(len(freq) - 1, -1, -1):
-            for num in freq[idx]:
-                res.append(num)
-
-                if len(res) == k:
-                    return res
-        # freq = Counter(nums)
-        # heap = []
-        
-        # for num, count in freq.items():
-        #     heappush(heap, (count, num))
-
-        #     if len(heap) > k:
-        #         heapq.heappop(heap)
-        # # ans = []
-        # # for i in range(k):
-        # #     ans.append(heap)
-        # ans = [item[1] for item in heap]
-        # return ans
+        ans = []
+        for a, b in heap:
+            ans.append(b)
+        return ans
