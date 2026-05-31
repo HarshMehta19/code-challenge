@@ -12,7 +12,7 @@ class Solution:
             else:
                 heapq.heappush(heap, (val, key))
 
-        ans = []
-        for a, b in heap:
-            ans.append(b)
-        return ans
+        return [b for a, b in heap]
+        # for a, b in heap:
+        #     ans.append(b)
+        # return ans
